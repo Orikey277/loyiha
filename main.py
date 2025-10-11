@@ -1,3 +1,5 @@
+from string import capwords
+
 from aiogram import Bot, Dispatcher, types, F
 import asyncio
 from aiogram.filters import Command
@@ -56,6 +58,10 @@ pdp = "https://www.spot.uz/media/img/2023/12/TNWEkA17027458253420_l.jpg"
 # s = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-qyyqPN_5Z-EM_fhMLtiM2lDmgfjyZ6YoEw&s"
 # r = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJPUPtK30F-coSkTGVGVKsNhMn36zWqVm_4FavYIAioJ1J2txIuCckiywhtjccR0VxRcg&usqp=CAU"
 s = "https://www.spot.uz/media/img/2023/12/TNWEkA17027458253420_l.jpg"
+i = "https://yukber.uz/image/cache/catalog/Shaurma-700x700.jpg"
+v = "https://lefood.menu/wp-content/uploads/w_images/2023/07/recept-76707-1240x827.jpg"
+q = "https://cdn.кухня.рф/recipe/27a53a0a-0c3d-4bc1-9023-e2b058fff43a.webp"
+r = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuz81rKYGM9ErG6GtHaz5zzp9E4Eii6cpTjg&s"
 
 @dp.message(Command('start'))
 async def send_start(message: types.Message):
@@ -91,29 +97,32 @@ async def send_start(message: types.Message):
 
 @dp.message(F.text == 'Shaurma')
 async def send_start(message: types.Message):
-    await message.answer(
-    "Shaurma narxi - 31.000",
+    await message.answer_photo(
+        photo=i,
+    caption="Shaurma narxi - 31.000",
         reply_markup=about_menu()
     )
 
 @dp.message(F.text == 'Lavash')
 async def send_start(message: types.Message):
-    await message.answer(
-      "Pishloqli katta lavash narxi - 55.000",
+    await message.answer_photo(
+        photo=v,
+      caption="Pishloqli katta lavash narxi - 55.000",
         reply_markup=about_menu()
     )
 
 @dp.message(F.text == 'Mini hot-dog')
 async def send_start(message: types.Message):
-    await message.answer(
-        "Mini hot-dog narxi - 17.000",
+    await message.answer_photo(
+        photo=q,
+        caption="Mini hot-dog narxi - 17.000",
         reply_markup=about_menu()
     )
 
 @dp.message(F.text == 'Loonger')
 async def send_start(message: types.Message):
-    await message.answer(
-        "Loonger narxi - 35.000",
+    await message.answer_photo(photo=r,
+        caption="Loonger narxi - 35.000",
         reply_markup=about_menu()
     )
 
